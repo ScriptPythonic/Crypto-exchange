@@ -1,5 +1,5 @@
 import Logo from '../assets/image.png';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import IconWrapper from '../assets/icon-wrapper.png';
 import IconWrapper2 from '../assets/icon-wrapper2.png';
 import IconWrapper3 from '../assets/vftr.png';
@@ -12,15 +12,39 @@ function Header() {
   const [isMintingClicked, setIsMintingClicked] = useState(false);
   const [isDeveloperClicked, setIsDeveloperClicked] = useState(false);
 
+  const mintingRef = useRef(null);
+  const developerRef = useRef(null);
+
+  // Toggle Minting dropdown
   const toggleMinting = () => {
     setIsMintingClicked(!isMintingClicked);
     setIsDeveloperClicked(false); // Close Developer dropdown when Minting is toggled
   };
 
+  // Toggle Developer dropdown
   const toggleDeveloper = () => {
     setIsDeveloperClicked(!isDeveloperClicked);
     setIsMintingClicked(false); // Close Minting dropdown when Developer is toggled
   };
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        mintingRef.current && !mintingRef.current.contains(event.target) &&
+        developerRef.current && !developerRef.current.contains(event.target)
+      ) {
+        setIsMintingClicked(false);
+        setIsDeveloperClicked(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="flex gap-4 items-center justify-evenly max-w-[500px]">
@@ -31,7 +55,7 @@ function Header() {
       <div className="space-x-5 relative">
         <a href="#" className="hover:text-gray-500">Stake</a>
         <a href="#" className="hover:text-gray-500">Liquidity</a>
-        <div className="inline-block">
+        <div className="inline-block" ref={mintingRef}>
           <div className="flex items-center gap-2">
             <button
               onClick={toggleMinting}
@@ -105,7 +129,7 @@ function Header() {
             </div>
           )}
         </div>
-        <div className="inline-block">
+        <div className="inline-block" ref={developerRef}>
           <div className="flex gap-2 items-center">
             <button
               onClick={toggleDeveloper}
