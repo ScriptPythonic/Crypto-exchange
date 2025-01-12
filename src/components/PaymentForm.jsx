@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import clsx from 'clsx'; // Importing clsx
 import Vector from '../assets/vector.png';
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
@@ -6,26 +6,44 @@ import Arrow from "../assets/arrow-exchange-swap.png";
 import { VscQuestion } from "react-icons/vsc";
 
 function PaymentForm() {
-  const [selectedPaymentCurrency, setSelectedPaymentCurrency] = useState('BUSD');
-  const [selectedReceiveCurrency, setSelectedReceiveCurrency] = useState('USDC');
+  const [selectedPaymentCurrency, setSelectedPaymentCurrency] = useState('');
+  const [selectedReceiveCurrency, setSelectedReceiveCurrency] = useState('');
   const [isPayOpen, setIsPayOpen] = useState(false);
   const [isReceiveOpen, setIsReceiveOpen] = useState(false);
   const [payAmount, setPayAmount] = useState('');
   const [receiveAmount, setReceiveAmount] = useState('');
 
-  const payOptions = ['BUSD', 'ETH', 'BNB'];
-  const receiveOptions = ['USDC', 'USDT', 'BTC'];
+  const [payOptions, setPayOptions] = useState(['BUSD', 'ETH', 'BNB']);
+  const [receiveOptions, setReceiveOptions] = useState(['USDC', 'USDT', 'BTC']);
+
+  useEffect(() => {
+    // Automatically update selected currencies if options change
+    setSelectedPaymentCurrency(payOptions[0]);
+    setSelectedReceiveCurrency(receiveOptions[0]);
+  }, [payOptions, receiveOptions]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Basic validation for amounts
+    if (isNaN(payAmount) || isNaN(receiveAmount)) {
+      alert('Please enter valid amounts for both payment and receiving currencies.');
+      return;
+    }
+
     console.log(`Pay Amount: ${payAmount} ${selectedPaymentCurrency}`);
     console.log(`Receive Amount: ${receiveAmount} ${selectedReceiveCurrency}`);
   };
 
-  const SwapCoin =()=>{
-    setSelectedPaymentCurrency(selectedReceiveCurrency)
-    setSelectedReceiveCurrency(selectedPaymentCurrency)
-  }
+  const SwapCoin = () => {
+    // Swap the payment and receive currencies
+    setPayOptions(receiveOptions);
+    setReceiveOptions(payOptions);
+
+    // Swap the selected currencies as well
+    setSelectedPaymentCurrency(receiveOptions[0]);
+    setSelectedReceiveCurrency(payOptions[0]);
+  };
 
   return (
     <div className="mt-4">
