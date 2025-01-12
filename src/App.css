@@ -11,3 +11,11 @@ body{
     font-family: "Poppins", serif;
     color: white;
 }
+
+
+.tw-connect-wallet{
+    padding: 8px 16px !important;
+    background-color:#E33319 !important ;
+    border-radius: 25px !important;
+    color: white !important;
+}
