@@ -1,4 +1,4 @@
-import './app.css'
+import './App.css'
 import Logo from './assets/image.png' 
 import { FaRegUserCircle } from "react-icons/fa";
 import Vector from './assets/vector.png'
@@ -8,11 +8,12 @@ import CryptoChart from './components/chart';
 import PaymentForm from './components/PaymentForm';
 
 
+
 function App (){
   return (
-    <div className='flex h-screen bg-gray-900'>
+    <div className='flex w-full h-screen  bg-gray-900'>
       {/* This is the main part*/}
-      <div className=' flex-1 border-white border-r py-4'>
+      <div className=' lg:flex-1 flex-none  py-4'>
         {/* the header */}
         <div className='flex gap-4 items-center justify-evenly max-w-[500px]'>
           <div className='flex items-center '>
@@ -51,7 +52,7 @@ function App (){
 
       </div>
       {/* end of the main part */}
-      <div className='lg:w-[500px] w-0 flex flex-col '>
+      <div className='lg:w-[500px] lg:block hidden'>
         <div className='mx-auto flex gap-6 items-center py-4 w-fit'>
           <FaRegUserCircle className='text-3xl text-white' />
           <div className='flex items-center bg-[#9aa6be] rounded-[25px] pl-2 gap-3'>
@@ -65,7 +66,7 @@ function App (){
             <div className='w-5 h-5 bg-white rounded-full'></div>
           </div>
         </div>
-        <div className='bg-[#2C2D3A] w-[450px] h-[600px] mx-auto mt-4 pt-2 rounded-3xl'>
+        <div className='bg-[#2C2D3A] w-[85%] mx-auto mt-4 pt-2 rounded-3xl'>
           <div className='flex items-center justify-center pl-2 gap-2 mt-4 '>
             <button className='bg-[#0177FB] py-2 rounded-xl px-4 text-white'>Primary</button>
             <button className='border-[#0177FB] rounded-xl py-2 px-4 ring-2 text-[#0177FB]'>Ghost</button>
