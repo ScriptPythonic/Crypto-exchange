@@ -1,9 +1,11 @@
 import './app.css'
-import Logo from './assets/image.png'
+import Logo from './assets/image.png' 
 import { FaRegUserCircle } from "react-icons/fa";
+import Vector from './assets/vector.png'
 import coin2x from './assets/coin@2x.svg'
 import Arrow from './assets/arrow-exchange-swap.png'
 import CryptoChart from './components/chart';
+
 
 function App (){
   return (
@@ -48,7 +50,7 @@ function App (){
 
       </div>
       {/* end of the main part */}
-      <div className='lg:w-[500px] w-0'>
+      <div className='lg:w-[500px] w-0 flex flex-col '>
         <div className='mx-auto flex gap-6 items-center py-4 w-fit'>
           <FaRegUserCircle className='text-3xl text-white' />
           <div className='flex items-center bg-[#9aa6be] rounded-[25px] pl-2 gap-3'>
@@ -62,9 +64,37 @@ function App (){
             <div className='w-5 h-5 bg-white rounded-full'></div>
           </div>
         </div>
+        <div className='bg-[#2C2D3A] w-[450px] h-[600px] mx-auto mt-4 pt-2 rounded-3xl'>
+          <div className='flex items-center justify-center pl-2 gap-2 mt-4 '>
+            <button className='bg-[#0177FB] py-2 rounded-xl px-4 text-white'>Primary</button>
+            <button className='border-[#0177FB] rounded-xl py-2 px-4 ring-2 text-[#0177FB]'>Ghost</button>
+            <button className='border-[#0177FB] rounded-xl py-2 px-4 ring-2 text-[#0177FB]'>Ghost</button>
+            <button className='text-[#0177FB] rounded-xl py-2 px-4'>Text</button>
+          </div>
+            <div className='mt-4'>
+            <form action="" className="space-y-2">
+                <div className="flex justify-between items-center px-5">
+                  <label htmlFor="pay" className="text-lg font-semibold">
+                    Pay
+                  </label>
+                  <p className="text-sm underline text-gray-600">
+                    Available: 500
+                  </p>
+                </div>
+                <input 
+                  type="text" 
+                  id="pay" 
+                  value={'BUSD'}
+                  className="border border- w-full bg-inherit  h-14 rounded-2xl p-2 max-w-[400px] mx-5 focus:outline-none " 
+                />
+          </form>
+            </div>
+
+        </div>
       </div>
 
     </div>
+    
   )
 }
 
