@@ -5,6 +5,7 @@ import Vector from './assets/vector.png'
 import coin2x from './assets/coin@2x.svg'
 import Arrow from './assets/arrow-exchange-swap.png'
 import CryptoChart from './components/chart';
+import PaymentForm from './components/PaymentForm';
 
 
 function App (){
@@ -71,24 +72,8 @@ function App (){
             <button className='border-[#0177FB] rounded-xl py-2 px-4 ring-2 text-[#0177FB]'>Ghost</button>
             <button className='text-[#0177FB] rounded-xl py-2 px-4'>Text</button>
           </div>
-            <div className='mt-4'>
-            <form action="" className="space-y-2">
-                <div className="flex justify-between items-center px-5">
-                  <label htmlFor="pay" className="text-lg font-semibold">
-                    Pay
-                  </label>
-                  <p className="text-sm underline text-gray-600">
-                    Available: 500
-                  </p>
-                </div>
-                <input 
-                  type="text" 
-                  id="pay" 
-                  value={'BUSD'}
-                  className="border border- w-full bg-inherit  h-14 rounded-2xl p-2 max-w-[400px] mx-5 focus:outline-none " 
-                />
-          </form>
-            </div>
+          
+            <PaymentForm/>
 
         </div>
       </div>
