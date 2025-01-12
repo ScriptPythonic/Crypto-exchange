@@ -46,6 +46,13 @@ function PaymentForm() {
   };
 
   return (
+  <>
+   <div className='flex items-center justify-center pl-2 gap-2 mt-4 '>
+   <button className='bg-[#0177FB] py-2 rounded-xl px-4 text-white'>Primary</button>
+   <button className='border-[#0177FB] rounded-xl py-2 px-4 ring-2 text-[#0177FB]'>Ghost</button>
+   <button className='border-[#0177FB] rounded-xl py-2 px-4 ring-2 text-[#0177FB]'>Ghost</button>
+   <button className='text-[#0177FB] rounded-xl py-2 px-4'>Text</button>
+ </div>
     <div className="mt-4">
       <form action="" className="space-y-2" onSubmit={handleSubmit}>
         {/* Pay Section */}
@@ -71,7 +78,7 @@ function PaymentForm() {
             />
           </div>
           {isPayOpen && (
-            <ul className="absolute z-10 w-[100px] bg-gray-700 border rounded-lg mt-1 shadow-lg">
+            <ul className="absolute z-10 w-[100px] bg-gray-700 border-none rounded-lg mt-1 shadow-lg">
               {payOptions.map((option, index) => (
                 <li
                   key={index}
@@ -116,7 +123,7 @@ function PaymentForm() {
             />
           </div>
           {isReceiveOpen && (
-            <ul className="absolute z-10 w-[100px] bg-gray-700 border rounded-lg mt-1 shadow-lg">
+            <ul className="absolute z-10 w-[100px] bg-gray-700 border-none rounded-lg mt-1 shadow-lg">
               {receiveOptions.map((option, index) => (
                 <li
                   key={index}
@@ -169,6 +176,7 @@ function PaymentForm() {
         </div>
       </form>
     </div>
+  </>
   );
 }
 

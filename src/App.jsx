@@ -1,11 +1,11 @@
 import './App.css'
 import Logo from './assets/image.png' 
-import { FaRegUserCircle } from "react-icons/fa";
 import Vector from './assets/vector.png'
 import coin2x from './assets/coin@2x.svg'
 import Arrow from './assets/arrow-exchange-swap.png'
 import CryptoChart from './components/chart';
 import PaymentForm from './components/PaymentForm';
+import Sidebar from './components/Sidebar'
 
 
 
@@ -52,35 +52,12 @@ function App (){
 
       </div>
       {/* end of the main part */}
-      <div className='lg:w-[500px] lg:block hidden'>
-        <div className='mx-auto flex gap-6 items-center py-4 w-fit'>
-          <FaRegUserCircle className='text-3xl text-white' />
-          <div className='flex items-center bg-[#9aa6be] rounded-[25px] pl-2 gap-3'>
-            <div className='flex items-center gap-[4px]'>
-              <div className='w-2 h-2 bg-red-600 rounded-full'></div>
-              <p>BSC</p>
-            </div>
-            <button className='px-3 py-2 bg-[#E33319] rounded-[25px]'>Connect to a wallet</button>
-          </div>
-          <div className='w-9 h-9 bg-[#9aa6be] rounded-[4px] flex justify-center items-center'>
-            <div className='w-5 h-5 bg-white rounded-full'></div>
-          </div>
-        </div>
-        <div className='bg-[#2C2D3A] w-[85%] mx-auto mt-4 pt-2 rounded-3xl'>
-          <div className='flex items-center justify-center pl-2 gap-2 mt-4 '>
-            <button className='bg-[#0177FB] py-2 rounded-xl px-4 text-white'>Primary</button>
-            <button className='border-[#0177FB] rounded-xl py-2 px-4 ring-2 text-[#0177FB]'>Ghost</button>
-            <button className='border-[#0177FB] rounded-xl py-2 px-4 ring-2 text-[#0177FB]'>Ghost</button>
-            <button className='text-[#0177FB] rounded-xl py-2 px-4'>Text</button>
-          </div>
-          
-            <PaymentForm/>
 
-        </div>
-      </div>
+      <Sidebar/>
+      
 
     </div>
-    
+
   )
 }
 
