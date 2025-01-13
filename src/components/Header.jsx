@@ -169,7 +169,7 @@ function Header() {
                 <li className="px-4 py-2 hover:bg-gray-700 w-full">
                   <a href="#">
                     <div className="flex gap-3 w-full">
-                      <img src={IconWrapper4} alt="logo" className="w-[32px] h-[32px] object-contain" />
+                      <img src={IconWrapper4} alt="logo" className="w-8 h-8 object-contain" />
                       <div className="flex flex-col gap-2 w-full">
                         <p className="text-sm text-white">Create a Token</p>
                         <h1 className="text-sm text-[#8B8CA7]">Create your own tokens with one click. No coding required!</h1>
