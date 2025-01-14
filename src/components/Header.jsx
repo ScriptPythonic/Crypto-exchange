@@ -7,6 +7,8 @@ import IconWrapper4 from '../assets/icon-wrapper4.png';
 import IconWrapper5 from '../assets/icon-wrapper5.png';
 import clsx from 'clsx';
 import Vector from '../assets/vector.png';
+import { NavLink, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const [isMintingClicked, setIsMintingClicked] = useState(false);
@@ -46,15 +48,28 @@ function Header() {
     };
   }, []);
 
+  const navigate = useNavigate()
+
+  const backToHome = () => {
+    navigate('/')
+  }
+
   return (
     <div className="flex gap-4 items-center justify-evenly max-w-[500px]">
-      <div className="flex items-center">
+      <div className="flex items-center hover:cursor-pointer" onClick={backToHome}>
         <img src={Logo} alt="Logo" width={50} height={50} />
         <h2 className="text-2xl font-bold">KIBA</h2>
       </div>
       <div className="space-x-5 relative">
         <a href="#" className="hover:text-gray-500">Stake</a>
-        <a href="#" className="hover:text-gray-500">Liquidity</a>
+        <NavLink
+            to="/liquidity"
+            className={({ isActive }) =>
+              isActive ? 'text-[#e33319]' : 'hover:text-gray-500'
+            }
+          >
+            Liquidity
+        </NavLink>
         <div className="inline-block" ref={mintingRef}>
           <div className="flex items-center gap-2">
             <button
