@@ -153,7 +153,7 @@ function PaymentForm() {
             className={clsx(
               'w-full py-[10px] rounded-[10px] text-[#4f5069]',
               {
-                'bg-green-500 text-white': payAmount && receiveAmount, // Green if both inputs are filled
+                'bg-[#E33319] text-white': payAmount && receiveAmount, // Green if both inputs are filled
                 'bg-[#3b3c4e]': !payAmount || !receiveAmount, // Default color if any input is empty
               }
             )}
