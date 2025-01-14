@@ -28,7 +28,7 @@ function Liquidity() {
                </div>
 
                {/* My Liquidity */}
-               <div className="flex items-center justify-center text-sm sm:text-base">
+               <div className="flex items-center justify-startgit  text-sm sm:text-base">
                   {`${pool.inputAmount} ${pool.inputToken} / ${pool.outputAmount} ${pool.outputToken}`}
                </div>
 
